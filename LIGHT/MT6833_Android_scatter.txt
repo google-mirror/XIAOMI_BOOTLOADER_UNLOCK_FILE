@@ -1,0 +1,2246 @@
+############################################################################################################
+#
+#  General Setting
+#
+############################################################################################################
+- general: MTK_PLATFORM_CFG
+  info:
+  - config_version: V2.1.0
+    platform: MT6833
+    project: 2023.01.13.1
+############################################################################################################
+#
+#  EMMC Layout Setting
+#
+############################################################################################################
+- storage_type: EMMC
+  description:
+  - general: MTK_STORAGE_CFG
+    info:
+    - storage: EMMC
+      boot_channel: MSDC_0
+      block_size: 0x200000
+  - partition_index: SYS0
+    partition_name: preloader
+    file_name: preloader.bin
+    is_download: true
+    type: SV5_BL_BIN
+    linear_start_addr: 0x0
+    physical_start_addr: 0x0
+    partition_size: 0x80000
+    region: EMMC_BOOT1_BOOT2
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: BOOTLOADERS
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS1
+    partition_name: pgpt
+    file_name: pgpt.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x0
+    physical_start_addr: 0x0
+    partition_size: 0x8000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS2
+    partition_name: misc
+    file_name: misc.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x8000
+    physical_start_addr: 0x8000
+    partition_size: 0x80000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS3
+    partition_name: countrycode
+    file_name: countrycode.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x88000
+    physical_start_addr: 0x88000
+    partition_size: 0x200000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS4
+    partition_name: para
+    file_name: para.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x288000
+    physical_start_addr: 0x288000
+    partition_size: 0x80000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS5
+    partition_name: expdb
+    file_name: expdb.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x308000
+    physical_start_addr: 0x308000
+    partition_size: 0x2800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS6
+    partition_name: frp
+    file_name: frp.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x2B08000
+    physical_start_addr: 0x2B08000
+    partition_size: 0x100000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS7
+    partition_name: nvcfg
+    file_name: nvcfg.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0x2C08000
+    physical_start_addr: 0x2C08000
+    partition_size: 0x2000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS8
+    partition_name: nvdata
+    file_name: nvdata.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0x4C08000
+    physical_start_addr: 0x4C08000
+    partition_size: 0x4000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS9
+    partition_name: vbmeta_a
+    file_name: vbmeta_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x8C08000
+    physical_start_addr: 0x8C08000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS10
+    partition_name: vbmeta_system_a
+    file_name: vbmeta_system_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x9408000
+    physical_start_addr: 0x9408000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS11
+    partition_name: vbmeta_vendor_a
+    file_name: vbmeta_vendor_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x9C08000
+    physical_start_addr: 0x9C08000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS12
+    partition_name: vbmeta_b
+    file_name: vbmeta_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xA408000
+    physical_start_addr: 0xA408000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS13
+    partition_name: vbmeta_system_b
+    file_name: vbmeta_system_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xAC08000
+    physical_start_addr: 0xAC08000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS14
+    partition_name: vbmeta_vendor_b
+    file_name: vbmeta_vendor_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xB408000
+    physical_start_addr: 0xB408000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS15
+    partition_name: metadata
+    file_name: metadata.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xBC08000
+    physical_start_addr: 0xBC08000
+    partition_size: 0x2000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS16
+    partition_name: persist
+    file_name: persist.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0xDC08000
+    physical_start_addr: 0xDC08000
+    partition_size: 0x3000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS17
+    partition_name: persistbak
+    file_name: persistbak.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x10C08000
+    physical_start_addr: 0x10C08000
+    partition_size: 0x3000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS18
+    partition_name: bk1
+    file_name: bk1.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x13C08000
+    physical_start_addr: 0x13C08000
+    partition_size: 0x3F8000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS19
+    partition_name: protect1
+    file_name: protect1.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0x14000000
+    physical_start_addr: 0x14000000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS20
+    partition_name: protect2
+    file_name: protect2.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0x14800000
+    physical_start_addr: 0x14800000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS21
+    partition_name: seccfg
+    file_name: seccfg.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x15000000
+    physical_start_addr: 0x15000000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS22
+    partition_name: otp
+    file_name: otp.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x15800000
+    physical_start_addr: 0x15800000
+    partition_size: 0x3000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: false
+    is_reserved: true
+    operation_type: RESERVED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS23
+    partition_name: md1img_a
+    file_name: md1img_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x18800000
+    physical_start_addr: 0x18800000
+    partition_size: 0xC800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS24
+    partition_name: spmfw_a
+    file_name: spmfw_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25000000
+    physical_start_addr: 0x25000000
+    partition_size: 0x100000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS25
+    partition_name: pi_img_a
+    file_name: pi_img_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25100000
+    physical_start_addr: 0x25100000
+    partition_size: 0x100000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS26
+    partition_name: dpm_a
+    file_name: dpm_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25200000
+    physical_start_addr: 0x25200000
+    partition_size: 0x400000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS27
+    partition_name: scp_a
+    file_name: scp_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25600000
+    physical_start_addr: 0x25600000
+    partition_size: 0x600000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS28
+    partition_name: sspm_a
+    file_name: sspm_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25C00000
+    physical_start_addr: 0x25C00000
+    partition_size: 0x100000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS29
+    partition_name: mcupm_a
+    file_name: mcupm_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25D00000
+    physical_start_addr: 0x25D00000
+    partition_size: 0x100000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS30
+    partition_name: gz_a
+    file_name: gz_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25E00000
+    physical_start_addr: 0x25E00000
+    partition_size: 0x2000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS31
+    partition_name: lk_a
+    file_name: lk_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x27E00000
+    physical_start_addr: 0x27E00000
+    partition_size: 0x200000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS32
+    partition_name: boot_a
+    file_name: boot_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x28000000
+    physical_start_addr: 0x28000000
+    partition_size: 0x4000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS33
+    partition_name: dtbo_a
+    file_name: dtbo_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x2C000000
+    physical_start_addr: 0x2C000000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS34
+    partition_name: tee_a
+    file_name: tee_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x2C800000
+    physical_start_addr: 0x2C800000
+    partition_size: 0x500000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS35
+    partition_name: sec1
+    file_name: sec1.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x2CD00000
+    physical_start_addr: 0x2CD00000
+    partition_size: 0x200000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS36
+    partition_name: proinfo
+    file_name: proinfo.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x2CF00000
+    physical_start_addr: 0x2CF00000
+    partition_size: 0x300000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS37
+    partition_name: efuse
+    file_name: efuse.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x2D200000
+    physical_start_addr: 0x2D200000
+    partition_size: 0x80000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS38
+    partition_name: nvram
+    file_name: nvram.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x2D280000
+    physical_start_addr: 0x2D280000
+    partition_size: 0x4000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: BINREGION
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS39
+    partition_name: boot_para
+    file_name: boot_para.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x31280000
+    physical_start_addr: 0x31280000
+    partition_size: 0x1A00000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS40
+    partition_name: logo_a
+    file_name: logo_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x32C80000
+    physical_start_addr: 0x32C80000
+    partition_size: 0x3000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS41
+    partition_name: logo_b
+    file_name: logo_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x35C80000
+    physical_start_addr: 0x35C80000
+    partition_size: 0x3000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS42
+    partition_name: bk2
+    file_name: bk2.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x38C80000
+    physical_start_addr: 0x38C80000
+    partition_size: 0xB80000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS43
+    partition_name: md1img_b
+    file_name: md1img_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x39800000
+    physical_start_addr: 0x39800000
+    partition_size: 0xC800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS44
+    partition_name: spmfw_b
+    file_name: spmfw_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46000000
+    physical_start_addr: 0x46000000
+    partition_size: 0x100000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS45
+    partition_name: pi_img_b
+    file_name: pi_img_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46100000
+    physical_start_addr: 0x46100000
+    partition_size: 0x100000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS46
+    partition_name: dpm_b
+    file_name: dpm_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46200000
+    physical_start_addr: 0x46200000
+    partition_size: 0x400000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS47
+    partition_name: scp_b
+    file_name: scp_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46600000
+    physical_start_addr: 0x46600000
+    partition_size: 0x600000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS48
+    partition_name: sspm_b
+    file_name: sspm_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46C00000
+    physical_start_addr: 0x46C00000
+    partition_size: 0x100000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS49
+    partition_name: mcupm_b
+    file_name: mcupm_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46D00000
+    physical_start_addr: 0x46D00000
+    partition_size: 0x100000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS50
+    partition_name: gz_b
+    file_name: gz_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46E00000
+    physical_start_addr: 0x46E00000
+    partition_size: 0x2000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS51
+    partition_name: lk_b
+    file_name: lk_b.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x48E00000
+    physical_start_addr: 0x48E00000
+    partition_size: 0x200000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS52
+    partition_name: boot_b
+    file_name: boot_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x49000000
+    physical_start_addr: 0x49000000
+    partition_size: 0x4000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS53
+    partition_name: dtbo_b
+    file_name: dtbo_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x4D000000
+    physical_start_addr: 0x4D000000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS54
+    partition_name: tee_b
+    file_name: tee_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x4D800000
+    physical_start_addr: 0x4D800000
+    partition_size: 0x500000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS55
+    partition_name: mem
+    file_name: mem.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x4DD00000
+    physical_start_addr: 0x4DD00000
+    partition_size: 0x400000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS56
+    partition_name: cust
+    file_name: cust.img
+    is_download: true
+    type: EXT4_IMG
+    linear_start_addr: 0x4E100000
+    physical_start_addr: 0x4E100000
+    partition_size: 0x80000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS57
+    partition_name: rescue
+    file_name: rescue.img
+    is_download: true
+    type: EXT4_IMG
+    linear_start_addr: 0xCE100000
+    physical_start_addr: 0xCE100000
+    partition_size: 0x8000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS58
+    partition_name: devinfo
+    file_name: devinfo.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0xD6100000
+    physical_start_addr: 0xD6100000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS59
+    partition_name: gsort
+    file_name: gsort.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xD6900000
+    physical_start_addr: 0xD6900000
+    partition_size: 0x1000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS60
+    partition_name: ffu
+    file_name: ffu.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xD7900000
+    physical_start_addr: 0xD7900000
+    partition_size: 0x800000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS61
+    partition_name: bk3
+    file_name: bk3.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0xD8100000
+    physical_start_addr: 0xD8100000
+    partition_size: 0x700000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS62
+    partition_name: super
+    file_name: super.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0xD8800000
+    physical_start_addr: 0xD8800000
+    partition_size: 0x220000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS63
+    partition_name: userdata
+    file_name: userdata.img
+    is_download: true
+    type: EXT4_IMG
+    linear_start_addr: 0x2F8800000
+    physical_start_addr: 0x2F8800000
+    partition_size: 0x1AD17F8000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS64
+    partition_name: flashinfo
+    file_name: flashinfo.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x1DC9FF8000
+    physical_start_addr: 0x1DC9FF8000
+    partition_size: 0x1000000
+    region: EMMC_USER
+    storage: HW_STORAGE_EMMC
+    boundary_check: false
+    is_reserved: true
+    operation_type: RESERVED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+
+############################################################################################################
+#
+#  UFS Layout Setting
+#
+############################################################################################################
+- storage_type: UFS
+  description:
+  - general: MTK_STORAGE_CFG
+    info:
+    - storage: UFS
+      boot_channel: UFSHCI_0
+      block_size: 0x80000
+  - partition_index: SYS0
+    partition_name: preloader
+    file_name: preloader.bin
+    is_download: true
+    type: SV5_BL_BIN
+    linear_start_addr: 0x0
+    physical_start_addr: 0x0
+    partition_size: 0x80000
+    region: UFS_LU0_LU1
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: BOOTLOADERS
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS1
+    partition_name: pgpt
+    file_name: pgpt.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x0
+    physical_start_addr: 0x0
+    partition_size: 0x8000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS2
+    partition_name: misc
+    file_name: misc.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x8000
+    physical_start_addr: 0x8000
+    partition_size: 0x80000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS3
+    partition_name: countrycode
+    file_name: countrycode.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x88000
+    physical_start_addr: 0x88000
+    partition_size: 0x200000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS4
+    partition_name: para
+    file_name: para.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x288000
+    physical_start_addr: 0x288000
+    partition_size: 0x80000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS5
+    partition_name: expdb
+    file_name: expdb.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x308000
+    physical_start_addr: 0x308000
+    partition_size: 0x2800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS6
+    partition_name: frp
+    file_name: frp.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x2B08000
+    physical_start_addr: 0x2B08000
+    partition_size: 0x100000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS7
+    partition_name: nvcfg
+    file_name: nvcfg.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0x2C08000
+    physical_start_addr: 0x2C08000
+    partition_size: 0x2000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS8
+    partition_name: nvdata
+    file_name: nvdata.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0x4C08000
+    physical_start_addr: 0x4C08000
+    partition_size: 0x4000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS9
+    partition_name: vbmeta_a
+    file_name: vbmeta_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x8C08000
+    physical_start_addr: 0x8C08000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS10
+    partition_name: vbmeta_system_a
+    file_name: vbmeta_system_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x9408000
+    physical_start_addr: 0x9408000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS11
+    partition_name: vbmeta_vendor_a
+    file_name: vbmeta_vendor_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x9C08000
+    physical_start_addr: 0x9C08000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS12
+    partition_name: vbmeta_b
+    file_name: vbmeta_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xA408000
+    physical_start_addr: 0xA408000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS13
+    partition_name: vbmeta_system_b
+    file_name: vbmeta_system_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xAC08000
+    physical_start_addr: 0xAC08000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS14
+    partition_name: vbmeta_vendor_b
+    file_name: vbmeta_vendor_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xB408000
+    physical_start_addr: 0xB408000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS15
+    partition_name: metadata
+    file_name: metadata.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xBC08000
+    physical_start_addr: 0xBC08000
+    partition_size: 0x2000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS16
+    partition_name: persist
+    file_name: persist.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0xDC08000
+    physical_start_addr: 0xDC08000
+    partition_size: 0x3000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS17
+    partition_name: persistbak
+    file_name: persistbak.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x10C08000
+    physical_start_addr: 0x10C08000
+    partition_size: 0x3000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS18
+    partition_name: bk1
+    file_name: bk1.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x13C08000
+    physical_start_addr: 0x13C08000
+    partition_size: 0x3F8000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS19
+    partition_name: protect1
+    file_name: protect1.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0x14000000
+    physical_start_addr: 0x14000000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS20
+    partition_name: protect2
+    file_name: protect2.img
+    is_download: false
+    type: EXT4_IMG
+    linear_start_addr: 0x14800000
+    physical_start_addr: 0x14800000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS21
+    partition_name: seccfg
+    file_name: seccfg.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x15000000
+    physical_start_addr: 0x15000000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS22
+    partition_name: otp
+    file_name: otp.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x15800000
+    physical_start_addr: 0x15800000
+    partition_size: 0x3000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: false
+    is_reserved: true
+    operation_type: RESERVED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS23
+    partition_name: md1img_a
+    file_name: md1img_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x18800000
+    physical_start_addr: 0x18800000
+    partition_size: 0xC800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS24
+    partition_name: spmfw_a
+    file_name: spmfw_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25000000
+    physical_start_addr: 0x25000000
+    partition_size: 0x100000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS25
+    partition_name: pi_img_a
+    file_name: pi_img_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25100000
+    physical_start_addr: 0x25100000
+    partition_size: 0x100000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS26
+    partition_name: dpm_a
+    file_name: dpm_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25200000
+    physical_start_addr: 0x25200000
+    partition_size: 0x400000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS27
+    partition_name: scp_a
+    file_name: scp_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25600000
+    physical_start_addr: 0x25600000
+    partition_size: 0x600000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS28
+    partition_name: sspm_a
+    file_name: sspm_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25C00000
+    physical_start_addr: 0x25C00000
+    partition_size: 0x100000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS29
+    partition_name: mcupm_a
+    file_name: mcupm_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25D00000
+    physical_start_addr: 0x25D00000
+    partition_size: 0x100000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS30
+    partition_name: gz_a
+    file_name: gz_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x25E00000
+    physical_start_addr: 0x25E00000
+    partition_size: 0x2000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS31
+    partition_name: lk_a
+    file_name: lk_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x27E00000
+    physical_start_addr: 0x27E00000
+    partition_size: 0x200000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS32
+    partition_name: boot_a
+    file_name: boot_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x28000000
+    physical_start_addr: 0x28000000
+    partition_size: 0x4000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS33
+    partition_name: dtbo_a
+    file_name: dtbo_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x2C000000
+    physical_start_addr: 0x2C000000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS34
+    partition_name: tee_a
+    file_name: tee_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x2C800000
+    physical_start_addr: 0x2C800000
+    partition_size: 0x500000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS35
+    partition_name: sec1
+    file_name: sec1.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x2CD00000
+    physical_start_addr: 0x2CD00000
+    partition_size: 0x200000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS36
+    partition_name: proinfo
+    file_name: proinfo.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x2CF00000
+    physical_start_addr: 0x2CF00000
+    partition_size: 0x300000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: PROTECTED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS37
+    partition_name: efuse
+    file_name: efuse.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x2D200000
+    physical_start_addr: 0x2D200000
+    partition_size: 0x80000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS38
+    partition_name: nvram
+    file_name: nvram.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x2D280000
+    physical_start_addr: 0x2D280000
+    partition_size: 0x4000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: BINREGION
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS39
+    partition_name: boot_para
+    file_name: boot_para.bin
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x31280000
+    physical_start_addr: 0x31280000
+    partition_size: 0x1A00000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS40
+    partition_name: logo_a
+    file_name: logo_a.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x32C80000
+    physical_start_addr: 0x32C80000
+    partition_size: 0x3000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS41
+    partition_name: logo_b
+    file_name: logo_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x35C80000
+    physical_start_addr: 0x35C80000
+    partition_size: 0x3000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS42
+    partition_name: bk2
+    file_name: bk2.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x38C80000
+    physical_start_addr: 0x38C80000
+    partition_size: 0xB80000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS43
+    partition_name: md1img_b
+    file_name: md1img_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x39800000
+    physical_start_addr: 0x39800000
+    partition_size: 0xC800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS44
+    partition_name: spmfw_b
+    file_name: spmfw_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46000000
+    physical_start_addr: 0x46000000
+    partition_size: 0x100000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS45
+    partition_name: pi_img_b
+    file_name: pi_img_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46100000
+    physical_start_addr: 0x46100000
+    partition_size: 0x100000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS46
+    partition_name: dpm_b
+    file_name: dpm_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46200000
+    physical_start_addr: 0x46200000
+    partition_size: 0x400000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS47
+    partition_name: scp_b
+    file_name: scp_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46600000
+    physical_start_addr: 0x46600000
+    partition_size: 0x600000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS48
+    partition_name: sspm_b
+    file_name: sspm_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46C00000
+    physical_start_addr: 0x46C00000
+    partition_size: 0x100000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS49
+    partition_name: mcupm_b
+    file_name: mcupm_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46D00000
+    physical_start_addr: 0x46D00000
+    partition_size: 0x100000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS50
+    partition_name: gz_b
+    file_name: gz_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x46E00000
+    physical_start_addr: 0x46E00000
+    partition_size: 0x2000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS51
+    partition_name: lk_b
+    file_name: lk_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x48E00000
+    physical_start_addr: 0x48E00000
+    partition_size: 0x200000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS52
+    partition_name: boot_b
+    file_name: boot_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x49000000
+    physical_start_addr: 0x49000000
+    partition_size: 0x4000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS53
+    partition_name: dtbo_b
+    file_name: dtbo_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x4D000000
+    physical_start_addr: 0x4D000000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS54
+    partition_name: tee_b
+    file_name: tee_b.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x4D800000
+    physical_start_addr: 0x4D800000
+    partition_size: 0x500000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS55
+    partition_name: mem
+    file_name: mem.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0x4DD00000
+    physical_start_addr: 0x4DD00000
+    partition_size: 0x400000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS56
+    partition_name: cust
+    file_name: cust.img
+    is_download: true
+    type: EXT4_IMG
+    linear_start_addr: 0x4E100000
+    physical_start_addr: 0x4E100000
+    partition_size: 0x80000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS57
+    partition_name: rescue
+    file_name: rescue.img
+    is_download: true
+    type: EXT4_IMG
+    linear_start_addr: 0xCE100000
+    physical_start_addr: 0xCE100000
+    partition_size: 0x8000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS58
+    partition_name: devinfo
+    file_name: devinfo.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0xD6100000
+    physical_start_addr: 0xD6100000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS59
+    partition_name: gsort
+    file_name: gsort.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xD6900000
+    physical_start_addr: 0xD6900000
+    partition_size: 0x1000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS60
+    partition_name: ffu
+    file_name: ffu.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0xD7900000
+    physical_start_addr: 0xD7900000
+    partition_size: 0x800000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: INVISIBLE
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS61
+    partition_name: bk3
+    file_name: bk3.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0xD8100000
+    physical_start_addr: 0xD8100000
+    partition_size: 0x700000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS62
+    partition_name: super
+    file_name: super.img
+    is_download: true
+    type: NORMAL_ROM
+    linear_start_addr: 0xD8800000
+    physical_start_addr: 0xD8800000
+    partition_size: 0x220000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS63
+    partition_name: userdata
+    file_name: userdata.img
+    is_download: true
+    type: EXT4_IMG
+    linear_start_addr: 0x2F8800000
+    physical_start_addr: 0x2F8800000
+    partition_size: 0x1AD17F8000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: true
+    is_reserved: false
+    operation_type: UPDATE
+    is_upgradable: true
+    empty_boot_needed: false
+    reserve: 0x0
+
+  - partition_index: SYS64
+    partition_name: flashinfo
+    file_name: flashinfo.img
+    is_download: false
+    type: NORMAL_ROM
+    linear_start_addr: 0x1DC9FF8000
+    physical_start_addr: 0x1DC9FF8000
+    partition_size: 0x1000000
+    region: UFS_LU2
+    storage: HW_STORAGE_UFS
+    boundary_check: false
+    is_reserved: true
+    operation_type: RESERVED
+    is_upgradable: false
+    empty_boot_needed: false
+    reserve: 0x0
+
+
